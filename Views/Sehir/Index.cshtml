@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcRehber.Models.Entities.Sehir>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Şehir Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Şehir Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SehirAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlakaKodu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SehirAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlakaKodu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,25 @@
+﻿@model MvcRehber.Models.Entities.Kisi
+@{
+    ViewBag.Title = "MailGonder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Ad @Model.Soyad kişisine mail gönder.</h2>
+
+<form action="/Kisi/MailGonder/" method="post">
+    <div class="form-group">
+        <label>Mail Adres</label>
+        <input type="text" class="form-control" value="@Model.EmailAdres" name="MailAdres" readonly />
+    </div>
+    <div class="form-group">
+        <label>Mail Adres</label>
+        <input type="text" class="form-control" name="Baslik" />
+    </div>
+    <div class="form-group">
+        <label>Mail Adres</label>
+        <input type="text" class="form-control" name="Mesaj" />
+    </div>
+    <button type="submit" class="btn btn-primary" >Gönder</button>
+</form>
+
+

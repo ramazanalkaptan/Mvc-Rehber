@@ -1,0 +1,42 @@
+﻿@model MvcRehber.Models.KisiModel.KisiIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Yeni Kişi","Ekle",null,new {@class="btn btn-primary mb-3"})
+<table class="table">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        @*<th>Ev Telefonu</th>*@
+        <th>Cep Telefonu</th>
+        @*<th>İş Telefonu</th>*@
+        <th>E-mail Adresi</th>
+        <th>Mail Gönder</th>
+        @*<th>Adres</th>*@
+        <th>Şehir</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var kisi in Model.Kisiler)
+    {
+        <tr>
+            <td>@kisi.Ad</td>
+            <td>@kisi.Soyad</td>
+            @*<td>@kisi.EvTelefon</td>*@
+            <td>@kisi.CepTelefon</td>
+            @*<td>@kisi.IsTelefon</td>*@
+            <td>@kisi.EmailAdres</td>
+            <th>@Html.ActionLink("Mail Gönder","MailGonder",new {id=kisi.Id})</th>
+            @*<td>@kisi.Adres</td>*@
+            <td>@kisi.Sehir.SehirAdi</td>
+            <td>
+                @*<a href="/Kisi/Guncelle/@kisi.Id/">Güncelle</a>*@
+                @Html.ActionLink("Güncelle", "Guncelle", new { id = kisi.Id }) |
+                @Html.ActionLink("Detay", "Detay", new { id = kisi.Id }) |
+                @Html.ActionLink("Sil", "Sil", new { id = kisi.Id}, new {onclick="return confirm('Kaydı Silmek İstediğinize Emin misiniz?');" })
+            </td>
+        </tr>
+    }
+</table>

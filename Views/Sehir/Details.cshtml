@@ -1,0 +1,35 @@
+﻿@model MvcRehber.Models.Entities.Sehir
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Şehir</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlakaKodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlakaKodu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Guncelle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>
